@@ -1,6 +1,9 @@
-import asyncio
-from modules.utils.files import read_txt, load_json
+from data.data import PASSWORD, ENCRYPTION
+from modules.utils.files import read_txt, load_json, read_wallets
 from modules.utils.helpers import get_chain_prices, get_wallet_proxies, get_bungee_data
+import asyncio
+
+from modules.utils.arguments_parser import parse_arguments
 
 max_time_check_tx_status = 100  # seconds. If a transaction does not return a status within this time, it is considered executed
 
@@ -184,7 +187,12 @@ STR_CANCEL = '❌ '
 
 ERC20_ABI = load_json("modules/utils/contracts/erc20.json")
 MULTICALL_ABI = load_json("modules/utils/contracts/multicall_abi.json")
-WALLETS = read_txt("datas/wallets.txt")
+
+WALLETS_FILE = 'datas/wallets.txt'
+
+WALLET_ARGS = parse_arguments(PASSWORD, WALLETS_FILE)
+WALLETS = read_wallets(ENCRYPTION, WALLET_ARGS.private_keys, WALLET_ARGS.password.encode('utf-8'))
+
 RECIPIENTS = read_txt("datas/recipients.txt")
 STARKNET_ADDRESS = read_txt("datas/starknet_address.txt")
 PROXIES = read_txt("datas/proxies.txt")

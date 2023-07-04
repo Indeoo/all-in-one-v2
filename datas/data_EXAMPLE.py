@@ -4,6 +4,9 @@ TG_ID = 0 # You can find your Telegram User ID here: https://t.me/getmyid_bot
 API_0x = 'your_0x_api_key' # Get your API key from 0x here: https://dashboard.0x.org/apps
 API_1inch = 'your_0x_api_key' # Get your API key from 1inch here: https://portal.1inch.dev/login
 
+PASSWORD = 'test'
+ENCRYPTION = True
+
 # Replace RPC endpoints with your own
 DATA = {
     "ethereum": {
