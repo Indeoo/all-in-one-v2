@@ -1,4 +1,4 @@
-from data.data import PASSWORD, ENCRYPTION
+from datas.data import PASSWORD, ENCRYPTION
 from modules.utils.files import read_txt, load_json, read_wallets
 from modules.utils.helpers import get_chain_prices, get_wallet_proxies, get_bungee_data
 import asyncio
