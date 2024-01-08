@@ -51,7 +51,7 @@ async def worker(func, key, number, retry=0):
     contract_txn = await func_instance.get_txn()
     if not contract_txn:
         logger.error(f'{func_instance.module_str} | error getting contract_txn')
-        return await retry_worker(func_instance, key, number, retry)
+        return await retry_worker(func, key, number, retry)
 
     status, tx_link = await func_instance.manager.send_tx(contract_txn)
 
